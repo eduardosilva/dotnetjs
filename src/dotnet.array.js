@@ -1,4 +1,18 @@
-﻿Array.prototype.any = function(predicate, args) {
+﻿Array.prototype.all = function(predicate) {
+  var i, result;
+  i = 0;
+  result = true;
+  while (i < this.length) {
+    if (!predicate(this[i])) {
+      result = false;
+      break;
+    }
+    i++;
+  }
+  return result;
+};
+
+Array.prototype.any = function(predicate) {
   var i, result;
   result = false;
   if (!predicate) {
@@ -6,7 +20,7 @@
   } else {
     i = 0;
     while (i < this.length) {
-      if (predicate(this[i], args)) {
+      if (predicate(this[i])) {
         result = true;
         break;
       }
@@ -16,15 +30,15 @@
   return result;
 };
 
-Array.prototype.first = function(predicate, args) {
+Array.prototype.first = function(predicate) {
   var i, result;
   result = null;
-  if (!predicate && this.any) {
+  if (!predicate && this.any()) {
     result = this[0];
   } else {
     i = 0;
     while (i < this.length) {
-      if (predicate(this[i], args)) {
+      if (predicate(this[i])) {
         result = this[i];
         break;
       }
@@ -42,12 +56,12 @@ Array.prototype.forEach = function(action) {
   }
 };
 
-Array.prototype.select = function(func, args) {
-  var arg, j, len, results;
+Array.prototype.select = function(func) {
+  var i, j, len, results;
   results = [];
-  for (j = 0, len = args.length; j < len; j++) {
-    arg = args[j];
-    results.push(func(arg));
+  for (j = 0, len = this.length; j < len; j++) {
+    i = this[j];
+    results.push(func(i));
   }
   return results;
 };
