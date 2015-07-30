@@ -1,4 +1,4 @@
-﻿Array.prototype.any(function(predicate, args) {
+﻿Array.prototype.any = function(predicate, args) {
   var i, result;
   result = false;
   if (!predicate) {
@@ -14,9 +14,9 @@
     }
   }
   return result;
-});
+};
 
-Array.prototype.first(function(predicate, args) {
+Array.prototype.first = function(predicate, args) {
   var i, result;
   result = null;
   if (!predicate && this.any) {
@@ -32,17 +32,17 @@ Array.prototype.first(function(predicate, args) {
     }
   }
   return result;
-});
+};
 
-Array.prototype.forEach(function(action, args) {
+Array.prototype.forEach = function(action) {
   var arg, j, len;
-  for (j = 0, len = args.length; j < len; j++) {
-    arg = args[j];
+  for (j = 0, len = this.length; j < len; j++) {
+    arg = this[j];
     action(arg);
   }
-});
+};
 
-Array.prototype.select(function(func, args) {
+Array.prototype.select = function(func, args) {
   var arg, j, len, results;
   results = [];
   for (j = 0, len = args.length; j < len; j++) {
@@ -50,9 +50,9 @@ Array.prototype.select(function(func, args) {
     results.push(func(arg));
   }
   return results;
-});
+};
 
-Array.prototype.where(function(predicate) {
+Array.prototype.where = function(predicate) {
   var i, result;
   result = [];
   i = 0;
@@ -63,4 +63,4 @@ Array.prototype.where(function(predicate) {
     i++;
   }
   return result;
-});
+};

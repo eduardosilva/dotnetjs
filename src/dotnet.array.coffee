@@ -1,5 +1,5 @@
 ﻿#Array functions
-Array::any (predicate, args) ->
+Array::any = (predicate, args) ->
     result = false;
     
     if (!predicate)
@@ -14,7 +14,7 @@ Array::any (predicate, args) ->
 
     result
 
-Array::first (predicate, args) ->
+Array::first = (predicate, args) ->
     result = null;
 
     if (!predicate and @.any )
@@ -29,16 +29,16 @@ Array::first (predicate, args) ->
 
     result
     
-Array::forEach (action, args) ->
-    action arg for arg in args
+
+Array::forEach = (action) ->
+    action arg for arg in @
     return
-    
-Array::select (func, args) ->
+
+Array::select = (func, args) ->
     func arg for arg in args
-
-
     
-Array::where (predicate) ->
+
+Array::where = (predicate) ->
     result = []
     i = 0
     while i < @length
@@ -47,4 +47,3 @@ Array::where (predicate) ->
         i++
         
     result
-
