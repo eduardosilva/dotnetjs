@@ -45,7 +45,22 @@ Array::forEach = (action) ->
 
 Array::select = (func) ->
     func i for i in @
+    
+Array::selectMany = (func) ->
+  result = []
+  i = 0
+  length = @length
+  while i < length
+    value = func(@[i])
+    if Object::toString.call(value) == '[object Array]'
+      j = 0
+      len = value.length
+      while j < len
+        result.push value[j++]
+    i++
+  result
 
+ 
 Array::where = (predicate) ->
     result = []
     i = 0

@@ -51,21 +51,40 @@
   };
 
   Array.prototype.forEach = function(action) {
-    var arg, j, len;
-    for (j = 0, len = this.length; j < len; j++) {
-      arg = this[j];
+    var arg, k, len1;
+    for (k = 0, len1 = this.length; k < len1; k++) {
+      arg = this[k];
       action(arg);
     }
   };
 
   Array.prototype.select = function(func) {
-    var i, j, len, results;
+    var i, k, len1, results;
     results = [];
-    for (j = 0, len = this.length; j < len; j++) {
-      i = this[j];
+    for (k = 0, len1 = this.length; k < len1; k++) {
+      i = this[k];
       results.push(func(i));
     }
     return results;
+  };
+
+  Array.prototype.selectMany = function(func) {
+    var i, j, len, length, result, value;
+    result = [];
+    i = 0;
+    length = this.length;
+    while (i < length) {
+      value = func(this[i]);
+      if (Object.prototype.toString.call(value) === '[object Array]') {
+        j = 0;
+        len = value.length;
+        while (j < len) {
+          result.push(value[j++]);
+        }
+      }
+      i++;
+    }
+    return result;
   };
 
   Array.prototype.where = function(predicate) {
