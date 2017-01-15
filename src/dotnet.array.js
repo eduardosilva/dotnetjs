@@ -139,3 +139,18 @@ Array.prototype.sum = function (func){
 	
 	return result;
 }
+
+//.net has not this method but this is very useful
+Array.prototype.chuncks = function(chunkSize) {
+	var chunks = [];
+	var temparray = null;
+	
+	for (var i = 0; i < this.length; i++) {
+		if (i % chunkSize === 0) {
+			temparray = new Array();
+			chunks.push(temparray);
+		}
+		temparray.push(this[i]);
+	}
+	return chunks;
+};
