@@ -191,23 +191,25 @@ Date.prototype.addMonths = function(months) {
   return new Date(this.getFullYear(), this.getMonth() + months, this.getDate(), this.getHours(), this.getMinutes(), this.getSeconds(), this.getMilliseconds());
 };
 
-String.Join = function (array, separator){
+String.join = function (separator, array) {
 	var result = "";
-  
-  array.forEach(function (i) {
-  	if (result !== "")
-    	result += separator;
-      
-		result += i;
-  });
-  
-  return result;
+
+	for (let index = 0; index < array.length; index++) {
+		const element = array[index];
+
+		if (result !== "")
+			result += separator;
+
+		result += element;
+	}
+
+	return result;
 }
 
 String.isNullOrEmpty = function (value) {
 	return !value || value === "";
 };
 
-String.prototype.padLeft = function(length, char) {
-  return Array(length - this.length + 1).join(char || " ") + this;
+String.prototype.padLeft = function (length, char) {
+	return Array(length - this.length + 1).join(char || " ") + this;
 };

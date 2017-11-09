@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 
 gulp.task('tests', () =>
   gulp.src('./test/*.js', { read: false })
-    .pipe(mocha({ reporter: 'nyan' }))
+    .pipe(mocha({ reporter: 'spec' }))
 );
 
 gulp.task('combine', function () {
