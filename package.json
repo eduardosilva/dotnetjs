@@ -1,0 +1,30 @@
+{
+  "name": "dotnetjs",
+  "version": "1.0.0",
+  "description": "Known functions of .NET language to javascript",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardosilva/dotnetjs.git"
+  },
+  "keywords": [
+    "javascript",
+    "library"
+  ],
+  "author": "Eduardo Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eduardosilva/dotnetjs/issues"
+  },
+  "homepage": "https://github.com/eduardosilva/dotnetjs#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1"
+  }
+}
